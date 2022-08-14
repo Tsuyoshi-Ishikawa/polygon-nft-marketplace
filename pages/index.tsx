@@ -2,9 +2,10 @@ import type { NextPage } from 'next'
 import Image from 'next/image'
 import { ethers } from 'ethers'
 import Web3Modal from 'web3modal'
-import { useNfts, useRefreshNfts, Nfts } from '../hooks/useNfts'
+import { useAllNfts, useRefreshAllNfts } from '../hooks/useAllNfts'
 // deployしたときに../configにaddressが書かれる。
 // そのaddressを使ってcontractを実行する。
+import { Nft } from '../types/nft'
 import {
   marketplaceAddress
 } from '../config';
@@ -12,10 +13,10 @@ import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketp
 
 const Home: NextPage = () => {
   const { nfts, isLoading } =
-    useNfts();
-  const refreshNfts = useRefreshNfts();
+    useAllNfts();
+  const refreshNfts = useRefreshAllNfts();
   
-  async function buyNft(nft: Nfts) {
+  async function buyNft(nft: Nft) {
     /* needs the user to sign the transaction, so will use Web3Provider and sign it */
     // Web3Providerでwalletにつないで認証する
     // https://github.com/WalletConnect/web3modal

@@ -9,29 +9,12 @@ import {
   marketplaceAddress
 } from '../config';
 import NFTMarketplace from '../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json'
+import { Nft, MarketItem } from '../types/nft'
 
-const SWR_KEY = 'Nfts';
+const SWR_KEY = 'AllNfts';
 
-type MarketItem = {
-  tokenId: string;
-  seller: string;
-  owner: string;
-  price: number;
-  sold: boolean;
-}
-
-export type Nfts = {
-  price: string,
-  tokenId: number,
-  seller: string,
-  owner: string,
-  image: string,
-  name: string,
-  description: string,
-}
-
-const fetchNfts = async (
-): Promise<Nfts[]> => {
+const fetchAllNfts = async (
+): Promise<Nft[]> => {
   /* create a generic provider and query for unsold market items */
   // JsonRpcProviderでethereumと接続を行えるproviderを提供する
   // https://docs.ethers.io/v5/api/providers/jsonrpc-provider/
@@ -61,9 +44,9 @@ const fetchNfts = async (
   return items;
 };
 
-export const useNfts = () => {
+export const useAllNfts = () => {
   const { data, error } = useSWR(SWR_KEY, async () => {
-    return await fetchNfts();
+    return await fetchAllNfts();
   });
   return {
     nfts: data,
@@ -72,7 +55,7 @@ export const useNfts = () => {
   };
 }
 
-export const useRefreshNfts = () => {
+export const useRefreshAllNfts = () => {
   const { mutate } = useSWRConfig();
   return useCallback(() => mutate(SWR_KEY), [mutate]);
 };
