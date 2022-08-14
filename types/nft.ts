@@ -9,7 +9,7 @@ export type MarketItem = {
 export type Nft = {
   price: string,
   tokenId: number,
-  tokenURI?: string,
+  tokenUri?: string,
   seller: string,
   owner: string,
   image: string,

@@ -10,7 +10,7 @@ export default function MyAssets() {
   
   function listNFT(nft: Nft) {
     console.log('nft:', nft)
-    router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenURI}`)
+    router.push(`/resell-nft?id=${nft.tokenId}&tokenURI=${nft.tokenUri}`)
   }
   
   if (!isLoading && !nfts?.length) return (<h1 className="py-10 px-20 text-3xl">No NFTs owned</h1>)
