@@ -7,11 +7,20 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-//  unused configuration commented out for now
-//  mumbai: {
-//    url: "https://rpc-mumbai.maticvigil.com",
-//    accounts: [process.env.privateKey]
-//  }
+    /*
+    mumbai: {
+      // Infura
+      // url: `https://polygon-mumbai.infura.io/v3/${infuraId}`
+      url: "https://rpc-mumbai.matic.today",
+      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+    },
+    matic: {
+      // Infura
+      // url: `https://polygon-mainnet.infura.io/v3/${infuraId}`,
+      url: "https://rpc-mainnet.maticvigil.com",
+      accounts: [process.env.NEXT_PUBLIC_PRIVATE_KEY]
+    }
+    */
   },
   solidity: "0.8.9",
 };
