@@ -12,12 +12,12 @@ type Props = {
 const Header = ({ links }: Props) => {
   return (
     <nav className="border-b p-6">
-        <p className="text-4xl font-bold">Polygon NFT Marketplace</p>
-        <div className="flex mt-4">
+        <p className="text-4xl font-bold text-center">Polygon NFT Marketplace</p>
+        <div className="flex mt-6">
           {links.map(({ href, text }, index) => {
             return (
               <Link href={href} key={index}>
-                <a className="mr-4 text-pink-500">
+                <a className="flex-auto text-green-500 text-center font-bold">
                   {text}
                 </a>
               </Link>
